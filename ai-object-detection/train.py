@@ -60,7 +60,7 @@ DATASET_PATH = "./datasets"
 BASE_MODEL = "yolov8n-cls.pt"
 
 # Hyperparameter Training
-EPOCHS       = 50      # Jumlah epoch maksimum
+EPOCHS       = 10      # Jumlah epoch maksimum
 IMAGE_SIZE   = 224     # Ukuran input gambar (standar untuk klasifikasi)
 BATCH_SIZE   = 16      # Batch size (turunkan ke 8 jika GPU VRAM < 4GB)
 PATIENCE     = 15      # Epoch tanpa peningkatan sebelum early stop
@@ -170,7 +170,7 @@ def run_training():
             lr0=LEARNING_RATE,          # Learning rate awal
             save=True,                  # Simpan checkpoint
             save_period=SAVE_PERIOD,    # Simpan setiap N epoch
-            project=PROJECT_NAME,       # Folder output utama
+            project=None,               # Set None agar default ke runs/classify (menghindari double nesting)
             name=RUN_NAME,              # Nama subfolder run
             device=DEVICE,              # GPU (0) atau CPU
             verbose=True,               # Tampilkan log detail

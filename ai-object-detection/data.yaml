@@ -3,31 +3,19 @@
 # ============================================================
 # Dataset: Fruits by YOLO (Roboflow)
 # Format : YOLO Classification (subfolder per kelas)
-# Source : https://universe.roboflow.com/fruitsdetection/fruits-by-yolo/dataset/1
 
-# Root directory dataset (relatif terhadap direktori ai-object-detection/)
-# Jalankan prepare_dataset.py untuk membuat struktur ini secara otomatis
-path: ./datasets   # Root dataset
-train: train       # Subfolder gambar training
-val: val           # Subfolder gambar validasi
-test: test         # Subfolder gambar testing
+path: ./datasets   # Root directory dataset (relatif terhadap ai-object-detection/)
+train: train       # Subfolder training
+val: val           # Subfolder validasi
+test: test         # Subfolder testing
 
-# Jumlah kelas buah
+# Jumlah kelas
 nc: 9
 
-# Nama kelas (urutan index 0–8 harus konsisten)
-names:
-  - Apple       # 0
-  - Banana      # 1
-  - Grapes      # 2
-  - Kiwi        # 3
-  - Mango       # 4
-  - Orange      # 5
-  - Pineapple   # 6
-  - Sugerapple  # 7
-  - Watermelon  # 8
+# Nama kelas (urutan harus sesuai dengan index)
+names: ['Apple', 'Banana', 'Grapes', 'Kiwi', 'Mango', 'Orange', 'Pineapple', 'Sugerapple', 'Watermelon']
 
-# Metadata Roboflow (informasi sumber dataset)
+# Metadata Roboflow
 roboflow:
   workspace: fruitsdetection
   project: fruits-by-yolo
