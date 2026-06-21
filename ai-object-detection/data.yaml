@@ -1,0 +1,24 @@
+# ============================================================
+# data.yaml — Konfigurasi Dataset YOLO Classification
+# ============================================================
+# Dataset: Fruits by YOLO (Roboflow)
+# Format : YOLO Classification (subfolder per kelas)
+
+path: ./datasets   # Root directory dataset (relatif terhadap ai-object-detection/)
+train: train       # Subfolder training
+val: val           # Subfolder validasi
+test: test         # Subfolder testing
+
+# Jumlah kelas
+nc: 9
+
+# Nama kelas (urutan harus sesuai dengan index)
+names: ['Apple', 'Banana', 'Grapes', 'Kiwi', 'Mango', 'Orange', 'Pineapple', 'Sugerapple', 'Watermelon']
+
+# Metadata Roboflow
+roboflow:
+  workspace: fruitsdetection
+  project: fruits-by-yolo
+  version: 1
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/fruitsdetection/fruits-by-yolo/dataset/1

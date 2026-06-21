@@ -1,0 +1,23 @@
+# ============================================================
+# YOLO Fruit Detection — Python Dependencies
+# ============================================================
+# Install with: pip install -r requirements.txt
+
+# Core deep learning & YOLO framework
+ultralytics>=8.0.0
+
+# Computer vision (for inference pop-up window & annotations)
+opencv-python>=4.8.0
+
+# PyTorch (CPU version — remove +cpu suffix if you have a GPU)
+torch>=2.0.0
+torchvision>=0.15.0
+
+# Image processing
+Pillow>=9.0.0
+
+# Scientific computing
+numpy>=1.24.0
+
+# Data handling (for _classes.csv parsing)
+pandas>=1.5.0
