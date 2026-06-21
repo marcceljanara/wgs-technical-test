@@ -1,0 +1,4 @@
+issues.md
+captures
+__pycache__/
+*.pyc
