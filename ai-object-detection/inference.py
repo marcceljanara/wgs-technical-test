@@ -38,6 +38,14 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+# ── Ultralytics YOLO ─────────────────────────────────────────
+try:
+    from ultralytics import YOLO
+    _ULTRALYTICS_AVAILABLE = True
+except Exception as _e:
+    _ULTRALYTICS_AVAILABLE = False
+    _ULTRALYTICS_ERROR = str(_e)
+
 # ============================================================
 # KONFIGURASI — PATH DITENTUKAN DI SINI (TIDAK DARI TERMINAL)
 # ============================================================
@@ -454,13 +462,11 @@ def main():
         log.error(str(e))
         sys.exit(1)
 
-    # ── 2. Load model YOLO ──────────────────────────────────────
-    try:
-        from ultralytics import YOLO
-    except ImportError:
+    # ── 2. Load model YOLO ──────────────────────────────────
+    if not _ULTRALYTICS_AVAILABLE:
         log.error(
-            "Ultralytics tidak terinstall!\n"
-            "Jalankan: pip install -r requirements.txt"
+            f"Ultralytics tidak dapat diload: {_ULTRALYTICS_ERROR}\n"
+            "Coba: pip install 'numpy<2.0' && pip install --upgrade matplotlib ultralytics"
         )
         sys.exit(1)
 

@@ -34,6 +34,20 @@ import shutil
 import logging
 from pathlib import Path
 
+# ── Dependency imports dengan graceful error handling ──────────
+try:
+    import torch
+    _TORCH_AVAILABLE = True
+except ImportError:
+    _TORCH_AVAILABLE = False
+
+try:
+    from ultralytics import YOLO
+    _ULTRALYTICS_AVAILABLE = True
+except Exception as _e:
+    _ULTRALYTICS_AVAILABLE = False
+    _ULTRALYTICS_ERROR = str(_e)
+
 # ============================================================
 # KONFIGURASI TRAINING — Edit sesuai kebutuhan Anda
 # ============================================================
@@ -56,7 +70,7 @@ PROJECT_NAME = "runs/classify"
 RUN_NAME     = "fruits-cls"
 
 # Gunakan GPU jika tersedia, fallback ke CPU
-DEVICE = "0" if __import__("torch").cuda.is_available() else "cpu"
+DEVICE = "0" if (_TORCH_AVAILABLE and torch.cuda.is_available()) else "cpu"
 
 # Path output best.pt yang akan disalin ke root project
 BEST_PT_SOURCE = Path(f"{PROJECT_NAME}/{RUN_NAME}/weights/best.pt")
@@ -128,12 +142,10 @@ def run_training():
     """
     Jalankan proses training YOLOv8 Classification.
     """
-    try:
-        from ultralytics import YOLO
-    except ImportError:
+    if not _ULTRALYTICS_AVAILABLE:
         log.error(
-            "Ultralytics tidak terinstall!\n"
-            "Jalankan: pip install -r requirements.txt"
+            f"Ultralytics tidak dapat diload: {_ULTRALYTICS_ERROR}\n"
+            "Coba: pip install 'numpy<2.0' && pip install --upgrade matplotlib ultralytics"
         )
         sys.exit(1)
 
@@ -194,9 +206,7 @@ def run_evaluation():
     """
     Evaluasi model hasil training pada test set dan cetak metrik.
     """
-    try:
-        from ultralytics import YOLO
-    except ImportError:
+    if not _ULTRALYTICS_AVAILABLE:
         return
 
     if not BEST_PT_SOURCE.exists():
