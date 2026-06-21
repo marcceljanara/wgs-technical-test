@@ -22,7 +22,7 @@ A basic Content Management System built using **PHP CodeIgniter 4 (MVC architect
 An AI-powered computer vision model trained to detect and classify specific fruits (Apples, Bananas, and Oranges) in images. This project utilizes the state-of-the-art **YOLOv8** architecture.
 - **Key Features:** Custom dataset preparation script, YOLOv8 model training pipeline, and an inference script to draw bounding boxes and confidence scores on newly provided images.
 - **Tech Stack:** Python 3, Ultralytics (YOLOv8), OpenCV.
-- **Documentation:** [View Full AI Object Detection Documentation](./ai-object-detection/AI-OBJECT-DETECTION.MD)
+- **Documentation:** [View Full AI Object Detection Documentation](./ai-object-detection/README.MD)
 
 ---
 
