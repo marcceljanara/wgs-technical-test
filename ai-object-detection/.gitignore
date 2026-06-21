@@ -1,4 +1,49 @@
-.agents
+# ============================================================
+# Git Ignore — YOLO Fruit Detection Project
+# ============================================================
+
+# Agent & planning files (not for submission)
+.agents/
 issues.MD
-Fruits-by-YOLO
-data.yaml
+
+# Raw dataset (large, not tracked in git)
+Fruits-by-YOLO/
+datasets/
+
+# YOLO training run outputs (generated during training)
+runs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+.env/
+.venv/
+
+# IDE / OS files
+.vscode/
+.idea/
+*.DS_Store
+Thumbs.db
+
+# Jupyter Notebooks checkpoints
+.ipynb_checkpoints/
+
+# Logs
+*.log
+
+# ============================================================
+# KEEP THESE (Deliverables — DO NOT ignore)
+# ============================================================
+# train.py          ← Training script
+# inference.py      ← Inference script
+# prepare_dataset.py← Dataset preparation helper
+# best.pt           ← Trained model weights
+# requirements.txt  ← Dependencies
+# data.yaml         ← Dataset config
